@@ -1,0 +1,2 @@
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#  com.mixley.cloud.common.beans.config.HandlerPostProcessor
