@@ -11,6 +11,6 @@ import java.lang.reflect.Method;
  * @author 李志锐
  * @date 2021/06/02
  */
-public interface MethodEnumHandler<T extends Annotation> extends EnumHandler<T,Method> {
-    void handel(T annotation, BeanContext beanContext, Method obj);
+public interface MethodAnnotationHandler<T extends Annotation> extends AnnotationHandler<T,Method> {
+    void handel(BeanContext beanContext, Method obj, T bean);
 }

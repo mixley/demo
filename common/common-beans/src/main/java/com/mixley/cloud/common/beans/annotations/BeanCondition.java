@@ -1,14 +1,14 @@
 package com.mixley.cloud.common.beans.annotations;
 
-import com.mixley.cloud.common.beans.cache.BeanCache;
+import com.mixley.cloud.common.beans.BeanContextHolder;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
-import org.springframework.core.annotation.MergedAnnotation;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.core.type.ClassMetadata;
 import org.springframework.core.type.MethodMetadata;
 
 import java.lang.annotation.Annotation;
+import java.util.stream.Stream;
 
 /**
  * 枚举注解条件处理条件
@@ -16,7 +16,7 @@ import java.lang.annotation.Annotation;
  * @author 李志锐
  * @date 2021/05/29
  */
-public class EnumCondition implements Condition {
+public class BeanCondition implements Condition {
 
     /**
      * 匹配
@@ -31,33 +31,27 @@ public class EnumCondition implements Condition {
         String classOrMethodName = getClassOrMethodName(metadata);
         try {
             Class<?> aClass = Class.forName(classOrMethodName);
-            if (!aClass.isAnnotation()){
-                BeanCache.getInstance().registerClass(aClass);
-            }else {
-                needRegister = false;
-            }
-            if (aClass.isEnum()) {
+            BeanContextHolder contextHolder = BeanContextHolder.getInstance();
+            if (!aClass.isAnnotation()) {
+                if (aClass.isEnum()) {
+                    //如果是枚举，无法注册为bean
+                    needRegister = false;
+                    //枚举拆分开再进行注册
+                    Stream.of(aClass.getEnumConstants()).forEach(contextHolder::registerContext);
+                } else {
+                    //直接注册
+                    Object bean = context.getBeanFactory().createBean(aClass);
+//                    Object bean = context.getBeanFactory().getBean(aClass);
+                    contextHolder.registerContext(bean);
+                }
+            }else{
                 needRegister = false;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return needRegister;
-    }
-
-    /**
-     * 元数据得到注解类型
-     *
-     * @param metadata 元数据
-     * @return {@link Class<? extends Annotation>[]}
-     */
-    @Deprecated
-    private Class<? extends Annotation>[] getAnnotationTypes(AnnotatedTypeMetadata metadata) {
-        Class[] collect = metadata.getAnnotations().stream()
-                .filter(MergedAnnotation::isDirectlyPresent)
-                .map(MergedAnnotation::getType)
-                .toArray(Class[]::new);
-        return collect;
+        return false;
+//        return needRegister;
     }
 
     /**

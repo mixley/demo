@@ -6,11 +6,13 @@ package com.mixley.cloud.common.beans.constant;
  * @author 李志锐
  * @date 2021/06/17
  */
-public interface EnumsConstants {
+public interface Constants {
     /** 枚举缓存的名字 */
     String ENUM_CACHE_NAME = "enum_cache";
     /** sys分组 */
     String SYS_GROUP = "sys";
+    /** 实体 */
+    String ENTITY = "entity";
     /** 错误 */
     String ERROR = "error";
     /**

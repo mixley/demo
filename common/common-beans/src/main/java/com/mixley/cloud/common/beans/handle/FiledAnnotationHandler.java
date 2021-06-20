@@ -11,8 +11,8 @@ import java.lang.reflect.Field;
  * @author 李志锐
  * @date 2021/06/02
  */
-public interface FiledEnumHandler<T extends Annotation> extends EnumHandler<T,Field> {
+public interface FiledAnnotationHandler<T extends Annotation> extends AnnotationHandler<T,Field> {
 
-    void handel(T annotation, BeanContext beanContext, Field obj);
+    void handel(BeanContext beanContext, Field obj, T bean);
 
 }

@@ -22,15 +22,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @RequestMapping("/test")
 public class TestControl {
-    BeanContextHolder beanContextHolder;
     @GetMapping
     public R test() {
-        Map<String, Map<String,String>> collect =
-         beanContextHolder.getContextList().stream()
-                .collect(Collectors.toMap(context -> context.metadata().tagName()
-                        ,context -> context.contents().stream().collect(Collectors.toMap(Content::code, Content::describe))));
-        return R.ok(collect);
-//        return R.ok();
+//        Map<String, Map<String,String>> collect =
+//         beanContextHolder.getContextList().stream()
+//                .collect(Collectors.toMap(context -> context.metadata().tagName()
+//                        ,context -> context.contents().stream().collect(Collectors.toMap(Content::code, Content::describe))));
+//        return R.ok(collect);
+        return R.ok();
     }
 
 }

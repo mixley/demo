@@ -1,32 +1,28 @@
 package com.mixley.cloud.common.beans;
 
-import com.mixley.cloud.common.beans.entity.Content;
 import com.mixley.cloud.common.beans.entity.BeanContext;
+import com.mixley.cloud.common.beans.entity.Content;
 import com.mixley.cloud.common.beans.entity.Metadata;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
+@NoArgsConstructor
 public class BeanContextHolder {
+    private final static BeanContextHolder instance = new BeanContextHolder();
+
+    public static BeanContextHolder getInstance() {
+        return instance;
+    }
+
     @Getter
     private List<BeanContext> contextList = new CopyOnWriteArrayList<>();
-
-    public BeanContext registerContext(Class clazz) {
-        Metadata metadata = Metadata.builder().build(clazz);
-        List<Content> contents;
-        if (clazz.isEnum()){
-            contents = Stream.of(clazz.getEnumConstants())
-                    .map(anEnum -> Content.builder().build(metadata, anEnum))
-                    .collect(Collectors.toList());
-        }else {
-            contents = new ArrayList(){{add(Content.builder().build(metadata, clazz));}};
-        }
-        BeanContext beanContext = new BeanContext(metadata, contents);
+    public BeanContext registerContext(Object bean) {
+        Metadata metadata = Metadata.builder().build(bean.getClass());
+        BeanContext beanContext = new BeanContext(metadata, Content.builder().build(metadata, bean));
         contextList.add(beanContext);
         return beanContext;
     }

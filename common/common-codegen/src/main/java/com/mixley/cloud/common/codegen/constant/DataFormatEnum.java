@@ -10,7 +10,7 @@ import lombok.Getter;
  * 数据格式枚举
  * JSON-Schema Draft 4 http://json-schema.org/
  * https://swagger.io/docs/specification/data-models/data-types/
- *
+ *https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#exampleObject
  * @author 李志锐
  * @date 2021/06/17
  */

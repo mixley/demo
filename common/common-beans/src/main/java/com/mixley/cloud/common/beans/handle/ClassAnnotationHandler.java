@@ -10,7 +10,7 @@ import java.lang.annotation.Annotation;
  * @author 李志锐
  * @date 2021/06/02
  */
-public interface ClassEnumHandler<T extends Annotation> extends EnumHandler<T,Class> {
+public interface ClassAnnotationHandler<T extends Annotation> extends AnnotationHandler<T,Class> {
 
-    void handel(T annotation, BeanContext beanContext, Class obj);
+    void handel(BeanContext beanContext, Class obj, T bean);
 }

@@ -10,16 +10,16 @@ import lombok.Data;
  * @date 2021/06/17
  */
 @Data
-public class ObjectEntity {
+public class ObjectType {
     /** 名称 */
-    private String name;
+    private StringType name;
     /** 数据格式 */
     private DataFormatEnum dataFormat;
     /** 是否必须 */
     private Boolean required;
     /** 描述 */
-    private String describe;
+    private StringType describe;
     /** 拓展 */
-    private String extra;
+    private StringType extra;
 
 }

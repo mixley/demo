@@ -1,4 +1,4 @@
 /**
- * 枚举注解
+ * 注解
  */
 package com.mixley.cloud.common.beans.annotations;

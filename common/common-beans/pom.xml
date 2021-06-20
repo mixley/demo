@@ -8,7 +8,7 @@
         <version>${global.version}</version>
     </parent>
 
-    <artifactId>common-enum</artifactId>
+    <artifactId>common-beans</artifactId>
     <packaging>jar</packaging>
 
     <description>枚举处理拓展包</description>

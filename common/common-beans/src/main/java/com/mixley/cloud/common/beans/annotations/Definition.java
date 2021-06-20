@@ -16,14 +16,8 @@ import java.lang.annotation.*;
 @Documented
 @Component
 @Inherited
-@Conditional(EnumCondition.class)//自定义枚举的Bean处理
+@Conditional(BeanCondition.class)//自定义枚举的Bean处理
 public @interface Definition {
-    /**
-     * 分组
-     *
-     * @return {@link String}
-     */
-    String group() default "";
     /**
      * 枚举tag标记名称，默认为类名，可自定义
      *
@@ -32,7 +26,7 @@ public @interface Definition {
     String value() default "";
 
     /**
-     * 标题,枚举的显示名称
+     * 标题,显示名称
      *
      * @return {@link String}
      */

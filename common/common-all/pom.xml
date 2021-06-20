@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>com.newland</groupId>
-            <artifactId>common-enum</artifactId>
+            <artifactId>common-beans</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -2,6 +2,7 @@ package com.mixley.cloud.gateway.constant;
 
 import com.mixley.cloud.common.beans.annotations.EnumCode;
 import com.mixley.cloud.common.beans.annotations.Definition;
+import com.mixley.cloud.common.beans.annotations.EnumOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,6 +12,7 @@ import lombok.Getter;
 public enum EnableStatusEnum {
 
     YES("0", "正常"),
+    @EnumOrder(1)
     NO("1", "已取消");
     @EnumCode
     private String code;

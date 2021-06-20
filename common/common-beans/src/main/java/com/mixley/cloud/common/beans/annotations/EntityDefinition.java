@@ -13,7 +13,9 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Definition(title = "异常处理",value = Constants.ERROR)
-public @interface ErrorDefinition {
-
+@Definition(title = "实体处理收集(调整为dic格式可解析)",value = Constants.ENTITY)
+public @interface EntityDefinition {
+    String code();
+    String describe() default "";
+    int order() default 0;
 }

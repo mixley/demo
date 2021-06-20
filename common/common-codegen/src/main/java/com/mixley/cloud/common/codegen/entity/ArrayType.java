@@ -12,9 +12,9 @@ import java.util.List;
  * @date 2021/06/17
  */
 @Data
-public class ArrayEntity extends ObjectEntity{
+public class ArrayType extends ObjectType {
     /** 值 */
-    private List<? extends ObjectEntity> items;
+    private List<? extends ObjectType> items;
     /** 最小项目数 */
     private Integer minItems;
     /** 最多项目数 */
