@@ -1,7 +1,7 @@
 package com.mixley.cloud.common.beans.handle.impl;
 
-import com.mixley.cloud.common.beans.annotations.Definition;
-import com.mixley.cloud.common.beans.annotations.EntityDefinition;
+import com.mixley.cloud.common.beans.annotations.DicDefinition;
+import com.mixley.cloud.common.beans.annotations.DicDefinition;
 import com.mixley.cloud.common.beans.entity.BeanContext;
 import com.mixley.cloud.common.beans.entity.Content;
 import com.mixley.cloud.common.beans.handle.ClassAnnotationHandler;
@@ -16,22 +16,21 @@ import org.springframework.stereotype.Component;
  */
 @AllArgsConstructor
 @Component
-public class EntityDefinitionClassAnnotationHandlerImpl implements ClassAnnotationHandler<EntityDefinition> {
+public class DicDefinitionClassAnnotationHandlerImpl implements ClassAnnotationHandler<DicDefinition> {
     @Override
     public int getOrder() {
         return -10;
     }
 
     @Override
-    public Class<EntityDefinition> type() {
-        return EntityDefinition.class;
+    public Class<DicDefinition> type() {
+        return DicDefinition.class;
     }
 
     @Override
-    public void handel(BeanContext beanContext, Class obj, EntityDefinition bean) {
+    public void handel(BeanContext beanContext, Class obj, DicDefinition bean) {
         Content content = beanContext.content();
-        content.code(bean.code());
-        content.describe(bean.describe());
-        content.order(bean.order());
+        content.code(bean.tag());
+        content.describe(bean.remark());
     }
 }

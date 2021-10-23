@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * 枚举元数据
+ * 元数据
  *
  * @author 李志锐
  * @date 2021/05/30
@@ -95,32 +95,31 @@ public class Metadata {
                 return metadataMap.get(clazz);
             }
             Definition definition = getDefinitionByClass(clazz);
-            //注解与注解对应的枚举类
+            //注解与注解对应的实体类
             String tagName = definition.value();
             if (Checks.isEmpty(tagName)) {
                 //tagName默认为类名称
                 tagName = clazz.getSimpleName();
             }
             Metadata metadata = new Metadata(clazz,definition,tagName,definition.title());
-//            //注册类上的注解类
+            //注册类上的注解类
             metadata.registerAnnotation(clazz);
             //注册类上的注解类
             Stream.of(clazz.getDeclaredClasses())
-//                    .filter(obj -> !Modifier.isStatic(obj.getModifiers()))
+            //.filter(obj -> !Modifier.isStatic(obj.getModifiers()))
                     .forEach(metadata::registerAnnotation);
             //注册方法上的注解类
             Stream.of(clazz.getDeclaredMethods())
-//                    .filter(obj -> !Modifier.isStatic(obj.getModifiers()))
+            //.filter(obj -> !Modifier.isStatic(obj.getModifiers()))
                     .forEach(metadata::registerAnnotation);
             //注册实体上的注解类
             Stream.of(clazz.getDeclaredFields())
-//                    .filter(obj -> !Modifier.isStatic(obj.getModifiers()))
+            //.filter(obj -> !Modifier.isStatic(obj.getModifiers()))
                     .forEach(metadata::registerAnnotation);
             //注册构造方法上的注解类
             Stream.of(clazz.getDeclaredConstructors())
-//                    .filter(obj -> !Modifier.isStatic(obj.getModifiers()))
+            //.filter(obj -> !Modifier.isStatic(obj.getModifiers()))
                     .forEach(metadata::registerAnnotation);
-
             //注册完成后，防止篡改
             metadata.finishRegisterAnnotation();
 

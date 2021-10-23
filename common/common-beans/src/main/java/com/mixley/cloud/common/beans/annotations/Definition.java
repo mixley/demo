@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.lang.annotation.*;
 
 /**
- * 枚举定义
+ * 实体定义
  *
  * @author 李志锐
  * @date 2021/05/29
@@ -16,10 +16,10 @@ import java.lang.annotation.*;
 @Documented
 @Component
 @Inherited
-@Conditional(BeanCondition.class)//自定义枚举的Bean处理
+@Conditional(BeanCondition.class)//自定义实体的Bean处理
 public @interface Definition {
     /**
-     * 枚举tag标记名称，默认为类名，可自定义
+     * 实体tag标记名称，默认为类名，可自定义
      *
      * @return {@link String}
      */

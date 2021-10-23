@@ -5,7 +5,7 @@ import com.mixley.cloud.common.beans.constant.Constants;
 import java.lang.annotation.*;
 
 /**
- * 枚举定义
+ * 实体定义
  *
  * @author 李志锐
  * @date 2021/05/29

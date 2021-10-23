@@ -11,7 +11,7 @@ import java.lang.annotation.Annotation;
 import java.util.stream.Stream;
 
 /**
- * 枚举注解条件处理条件
+ * 注解条件处理条件
  *
  * @author 李志锐
  * @date 2021/05/29

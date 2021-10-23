@@ -5,13 +5,13 @@
     <parent>
         <groupId>com.newland</groupId>
         <artifactId>common</artifactId>
-        <version>${global.version}</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>common-beans</artifactId>
     <packaging>jar</packaging>
 
-    <description>枚举处理拓展包</description>
+    <description>处理拓展包</description>
 
     <dependencies>
         <!--json模块-->

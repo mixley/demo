@@ -10,6 +10,8 @@ public interface BaseHandler<T, R extends AnnotatedElement> extends PriorityOrde
 
     Class<T> type();
 
+    Class<R> annotatedElement();
+
     /**
      * 设置优先级别，值约低，约优先
      *

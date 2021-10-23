@@ -4,6 +4,7 @@ import com.mixley.cloud.common.core.function.MyFunction;
 import lombok.experimental.UtilityClass;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  * 转换
@@ -36,6 +37,14 @@ public class Covers {
             field.setAccessible(true);
             Object obj = field.get(object);
             field.setAccessible(false);
+            return obj;
+        };
+    }
+    public MyFunction<Method, Object> methodGetVal(Object object) {
+        return method -> {
+            method.setAccessible(true);
+            Object obj = method.invoke(object);
+            method.setAccessible(false);
             return obj;
         };
     }

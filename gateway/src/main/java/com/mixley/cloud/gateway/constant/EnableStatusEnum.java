@@ -1,8 +1,9 @@
 package com.mixley.cloud.gateway.constant;
 
-import com.mixley.cloud.common.beans.annotations.EnumCode;
+import com.mixley.cloud.common.beans.annotations.BeanCode;
+import com.mixley.cloud.common.beans.annotations.BeanDescribe;
 import com.mixley.cloud.common.beans.annotations.Definition;
-import com.mixley.cloud.common.beans.annotations.EnumOrder;
+import com.mixley.cloud.common.beans.annotations.BeanOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,10 +13,14 @@ import lombok.Getter;
 public enum EnableStatusEnum {
 
     YES("0", "正常"),
-    @EnumOrder(1)
+    @BeanOrder(1)
     NO("1", "已取消");
-    @EnumCode
+    @BeanCode
     private String code;
     private String describe;
 
+    @BeanDescribe
+    public String getDescribeVal(){
+        return code+":"+describe;
+    }
 }

@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 数据类型枚举
+ * 数据类型实体
  * JSON-Schema Draft 4 http://json-schema.org/
  * https://swagger.io/docs/specification/data-models/data-types/
  * @author 李志锐
@@ -15,7 +15,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-@Definition(title = "数据类型枚举")
+@Definition(title = "数据类型实体")
 public enum DataTypeEnum {
     STRING("string","字符串(含日期文件)"),
     NUMBER("number","数字类型"),

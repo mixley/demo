@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 数据格式枚举
+ * 数据格式实体
  * JSON-Schema Draft 4 http://json-schema.org/
  * https://swagger.io/docs/specification/data-models/data-types/
  *https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#exampleObject
@@ -16,7 +16,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-@Definition(title = "数据格式枚举")
+@Definition(title = "数据格式实体")
 public enum DataFormatEnum {
 
     MIXED("mixed",  DataTypeEnum.MIXED, "混合类型"),

@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.newland</groupId>
         <artifactId>common</artifactId>
-        <version>${global.version}</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>common-all</artifactId>
@@ -13,13 +13,13 @@
     <description>全部模块</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.newland</groupId>
-            <artifactId>common-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newland</groupId>
-            <artifactId>common-beans</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.newland</groupId>-->
+<!--            <artifactId>common-core</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.newland</groupId>-->
+<!--            <artifactId>common-beans</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

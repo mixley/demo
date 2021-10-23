@@ -1,13 +1,11 @@
 package com.mixley.cloud.common.beans.handle.impl;
 
-import com.mixley.cloud.common.beans.annotations.EnumOrder;
 import com.mixley.cloud.common.beans.entity.BeanContext;
 import com.mixley.cloud.common.beans.entity.Content;
 import com.mixley.cloud.common.beans.handle.BeanHandler;
 import com.mixley.cloud.common.core.utils.Checks;
 import com.mixley.cloud.common.core.utils.Covers;
 import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 枚举值
+ * 实体值
  *
  * @author 李志锐
  * @date 2021/05/30

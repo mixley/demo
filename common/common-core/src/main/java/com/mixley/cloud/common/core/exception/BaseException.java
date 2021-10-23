@@ -15,8 +15,6 @@ import lombok.Getter;
 /**
  * 自定义异常
  *
- * @author sunny
- * @date 2020-1-2
  */
 public class BaseException extends RuntimeException {
     private static final long serialVersionUID = 1L;

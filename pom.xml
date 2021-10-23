@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.newland</groupId>
     <artifactId>demo</artifactId>
-    <version>${global.version}</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <description>demo</description>
 
@@ -19,9 +19,6 @@
         <module>gateway</module>
     </modules>
     <properties>
-        <!--全局版本设置-->
-        <global.version>1.0.0-${profiles}</global.version>
-
         <nacosHost>128.0.0.22</nacosHost>
         <nacosPort>8848</nacosPort>
         <!--开发环境-->
@@ -51,6 +48,7 @@
             <version>1.18.16</version>
             <optional>true</optional>
         </dependency>
+
         <!--所有项目支持测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,6 +68,11 @@
     <dependencyManagement>
         <dependencies>
 
+            <!--        <dependency>-->
+            <!--            <groupId>com.newland</groupId>-->
+            <!--            <artifactId>gateway</artifactId>-->
+            <!--            <version>1.0.0</version>-->
+            <!--        </dependency>-->
         </dependencies>
     </dependencyManagement>
 
