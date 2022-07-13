@@ -38,20 +38,35 @@ public class BeanContextHolder {
     public BeanContextHolder(BeanContextHolder beanContextHolder){
         this.contextList.addAll(beanContextHolder.getContextList());
     }
+    //单独拿出去 contextList 是允许手动注册的，注册完成后调用
     @Getter
     private List<BeanContext> contextList = new CopyOnWriteArrayList<>();
 
 
-    public BeanContext registerContext(Object bean) {
+    public void registerContextClazz(Class clazz) {
+        if (clazz.isEnum()) {
+            //枚举拆分开再进行注册
+            contextList.addAll(Stream.of(clazz.getEnumConstants()).map(bean->{
+                Metadata metadata = Metadata.builder().build(bean.getClass());
+                BeanContext beanContext = new BeanContext(metadata, Content.builder().build(metadata, bean));
+                return beanContext;
+            }).collect(Collectors.toList()));
+        }else {
+            Metadata metadata = Metadata.builder().build(clazz);
+            BeanContext beanContext = new BeanContext(metadata, Content.builder().build(metadata, null));
+            contextList.add(beanContext);
+        }
+    }
+    public void registerContext(Object bean) {
         if (bean instanceof BeanContext){
             BeanContext beanContext = (BeanContext) bean;
             contextList.add(beanContext);
-            return beanContext;
+            return ;
         }
         Metadata metadata = Metadata.builder().build(bean.getClass());
         BeanContext beanContext = new BeanContext(metadata, Content.builder().build(metadata, bean));
         contextList.add(beanContext);
-        return beanContext;
+        return ;
     }
 
     /**
@@ -91,6 +106,7 @@ public class BeanContextHolder {
         )
                 //排序后再进行处理,倒叙排列，数字越小越先执行
                 .sorted(Comparator.comparing(MyHandel::getOrder))
+                //TODO 处理为保存，后续支持一直调用（给实体进行调用）
                 .forEach(MyHandel::handel);
     }
     /**

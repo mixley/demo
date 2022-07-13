@@ -1,8 +1,6 @@
 package com.mixley.cloud.common.codegen.constant;
 
-import com.mixley.cloud.common.beans.annotations.EnumCode;
 import com.mixley.cloud.common.beans.annotations.Definition;
-import com.mixley.cloud.common.beans.annotations.EnumDescribe;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -24,8 +22,6 @@ public enum DataTypeEnum {
     ARRAY("array","数组类型"),
     OBJECT("object","对象"),
     MIXED("mixed","混合类型");
-    @EnumCode
     private String name;
-    @EnumDescribe
     private String describe;
 }

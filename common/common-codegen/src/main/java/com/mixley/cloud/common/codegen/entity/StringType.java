@@ -1,7 +1,6 @@
 package com.mixley.cloud.common.codegen.entity;
 
 import com.mixley.cloud.common.codegen.constant.DataTypeEnum;
-import io.swagger.annotations.ApiParam;
 import lombok.Data;
 
 /**
@@ -17,6 +16,7 @@ public class StringType extends DataType {
     /** 最大长度 */
     Integer maxLength;
 
+    String format;
     @Override
     public DataTypeEnum dataType() {
         return DataTypeEnum.STRING;

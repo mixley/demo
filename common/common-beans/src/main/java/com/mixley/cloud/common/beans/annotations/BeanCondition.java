@@ -32,6 +32,7 @@ public class BeanCondition implements Condition {
         try {
             Class<?> aClass = Class.forName(classOrMethodName);
             BeanContextHolder contextHolder = BeanContextHolder.getInstance();
+//            contextHolder.registerContext(aClass);
             if (!aClass.isAnnotation()) {
                 if (aClass.isEnum()) {
                     //如果是枚举，无法注册为bean

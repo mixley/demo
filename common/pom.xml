@@ -16,6 +16,7 @@
         <module>common-all</module>
         <module>common-core</module>
         <module>common-beans</module>
+        <module>common-codegen</module>
     </modules>
     <dependencyManagement>
         <dependencies>

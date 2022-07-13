@@ -1,8 +1,6 @@
 package com.mixley.cloud.common.codegen.constant;
 
-import com.mixley.cloud.common.beans.annotations.EnumCode;
 import com.mixley.cloud.common.beans.annotations.Definition;
-import com.mixley.cloud.common.beans.annotations.EnumDescribe;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -55,11 +53,9 @@ public enum DataFormatEnum {
 
 
     /** 名称 */
-    @EnumCode
     private String name;
     /** 类型 */
     private DataTypeEnum type;
     /** 描述 */
-    @EnumDescribe
     private String describe;
 }

@@ -12,14 +12,14 @@ import lombok.Data;
 @Data
 public class ObjectType {
     /** 名称 */
-    private StringType name;
+    private String name;
     /** 数据格式 */
     private DataFormatEnum dataFormat;
     /** 是否必须 */
     private Boolean required;
     /** 描述 */
-    private StringType describe;
+    private String describe;
     /** 拓展 */
-    private StringType extra;
+    private String extra;
 
 }
